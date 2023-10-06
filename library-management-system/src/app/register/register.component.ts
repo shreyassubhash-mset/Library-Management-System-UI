@@ -33,6 +33,7 @@ export class RegisterComponent {
         // You can handle the response here, e.g., store user data in local storage and navigate to a different page
         localStorage.setItem('token', response.token);
         console.log('Registration successful', response);
+        this.router.navigate(['/login']);
       },
       (error) => {
         // Handle registration error, e.g., display an error message to the user
