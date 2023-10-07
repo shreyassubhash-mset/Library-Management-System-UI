@@ -137,7 +137,7 @@ img {
 
 button {
     position: absolute;
-  background: #1845ad;
+  background: #ad1818;
   padding: 10px;
   display: block;
   outline: 0;
@@ -153,7 +153,7 @@ button {
   left: 23rem;
   top: 11rem;
   &:hover {
-    background: #23a2f6;
+    background: #f62323;
     transition: all 0.4s ease-in-out;
   }
 }
