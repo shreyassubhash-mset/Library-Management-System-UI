@@ -3,7 +3,7 @@ This is Ui for the Library-Management-System using Angular
 
 To run this prorgram:
 
-- first you should download anguler Cli gloabaly
+- first you should download anguler Cli gloabaly by running the command "npm install -g @angular/cli".
 
 - after installin angular cli in terminal run "npm install" to install all packages.
 
