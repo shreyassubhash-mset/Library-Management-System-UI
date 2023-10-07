@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <div class="dashboard">
-        <h3> Dashboard</h3>
+        <h3>Library</h3>
         <ul class="nav-menu">
-            <li><a>Home</a></li>
-            <li><a href="#">Return Books</a></li>
-            <li><a href="#">Borrowed Books</a></li>
-            <li><a href="#">Borrow History</a></li>
+            <li routerLinkActive="active"><a routerLink="/client/home">Dashboard</a></li>
+            <li routerLinkActive="active"><a routerLink="/client/borrow">Books</a></li>
+            <li routerLinkActive="active"><a routerLink="/client/history">Current Borrows</a></li>
         </ul>
-        
-        <a class="logout" routerLink="/login"><mat-icon>logout</mat-icon>Log out</a>
+        <div>
+            <a class="profile" routerLink="/client/profile">Edit Profile</a>
+            <a class="logout" routerLink="/login">Log out</a>
+        </div>
     </div>
-</body>
-</html>
+    <div class="user">
+        <p>Hi {{name}}</p>
+    </div>
+
 

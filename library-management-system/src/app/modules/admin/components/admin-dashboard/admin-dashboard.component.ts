@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
+ constructor(private userService: UserService) {}
 
+ name = localStorage.getItem('name');
 }

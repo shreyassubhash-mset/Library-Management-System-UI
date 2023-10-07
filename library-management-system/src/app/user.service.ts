@@ -43,6 +43,8 @@ export class UserService {
     let user = this.http.get(`${this.baseUrl}/users/${token.id}`, { headers });
     user.subscribe(
       (response: any) => {
+        localStorage.setItem('name',response.username);
+        localStorage.setItem('userId',response._id);
         if(response.userType === 'Admin'){
           this.router.navigate(['/admin']);
         }
@@ -53,4 +55,40 @@ export class UserService {
     );
   }
 
+  getUserDetails() {
+    let headers = this.getHeaders();
+    let token = this.jwt.decodeToken();
+    let user = this.http.get(`${this.baseUrl}/users/${token.id}`, { headers });
+    user.subscribe(
+      (response: any) => {
+        let name = response.username;
+        return name;
+      }
+    );
+  }
+
+  getBooks() {
+    let headers = this.getHeaders();
+    return this.http.get(`${this.baseUrl}/books`, { headers } );
+  }
+  searchBook(keyword: string) {
+    let headers = this.getHeaders();
+    const query = keyword ? `?keyword=${encodeURIComponent(keyword)}` : '';
+    return this.http.get(`${this.baseUrl}/books/search${query}`, { headers });
+  }
+
+  borrowBook(bookId: string) {
+    let headers = this.getHeaders();
+    return this.http.post(`${this.baseUrl}/transaction/borrow/${localStorage.getItem('userId')}/${bookId}`, { headers });
+  }
+
+  getBorrowedBooks() {
+    let headers = this.getHeaders();
+    return this.http.get(`${this.baseUrl}/transaction/history/${localStorage.getItem('userId')}`, { headers });
+  }
+
+  returnBook(borrowId: string) {
+    let headers = this.getHeaders();
+    return this.http.post(`${this.baseUrl}/transaction/return/${borrowId}`, { headers });
+  }
 }

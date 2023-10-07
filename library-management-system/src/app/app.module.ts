@@ -20,7 +20,8 @@ import { AuthenticationGuard } from './guards/authentication.guard';
     LoginComponent,
   ],
   imports: [
-    MatIconModule,BrowserModule,
+    MatIconModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

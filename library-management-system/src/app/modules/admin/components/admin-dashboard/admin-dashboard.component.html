@@ -1,1 +1,29 @@
-<p>admin-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <div class="dashboard">
+        <h3>Library</h3>
+        <ul class="nav-menu">
+            <li routerLinkActive="active"><a routerLink="/client/home">Dashboard</a></li>
+            <li routerLinkActive="active"><a>Books</a></li>
+            <li><a>Transaction</a></li>
+        </ul>
+        <div>
+            <a class="profile" routerLink="/client/profile">Edit Profile</a>
+            <a class="logout" routerLink="/login">Log out</a>
+        </div>
+    </div>
+    <div class="user">
+        <p>Hi {{name}}</p>
+    </div>
+</body>
+</html>
+
+
+
