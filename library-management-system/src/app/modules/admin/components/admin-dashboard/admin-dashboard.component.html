@@ -10,13 +10,13 @@
     <div class="dashboard">
         <h3>Library</h3>
         <ul class="nav-menu">
-            <li routerLinkActive="active"><a routerLink="/client/home">Dashboard</a></li>
-            <li routerLinkActive="active"><a>Books</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/home">Dashboard</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/book">Books</a></li>
             <li><a>Transaction</a></li>
         </ul>
         <div>
             <a class="profile" routerLink="/client/profile">Edit Profile</a>
-            <a class="logout" routerLink="/login">Log out</a>
+            <a (click)="logout()" class="logout" routerLink="/login">Log out</a>
         </div>
     </div>
     <div class="user">

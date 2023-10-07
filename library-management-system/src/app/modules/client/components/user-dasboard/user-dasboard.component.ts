@@ -11,6 +11,11 @@ export class UserDasboardComponent {
 
   name = localStorage.getItem('name');
 
+  logout() {
+    localStorage.removeItem('name');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  }
   
 
 

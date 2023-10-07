@@ -10,4 +10,11 @@ export class AdminDashboardComponent {
  constructor(private userService: UserService) {}
 
  name = localStorage.getItem('name');
+
+ logout() {
+  localStorage.removeItem('name');
+  localStorage.removeItem('token');
+  localStorage.removeItem('userId');
+}
+
 }

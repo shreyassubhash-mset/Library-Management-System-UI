@@ -91,4 +91,11 @@ export class UserService {
     let headers = this.getHeaders();
     return this.http.post(`${this.baseUrl}/transaction/return/${borrowId}`, { headers });
   }
+
+  deleteBooks(bookId: string) {
+    let headers = this.getHeaders();
+    return this.http.delete(`${this.baseUrl}/${bookId}`, { headers });
+
+  }
+
 }
