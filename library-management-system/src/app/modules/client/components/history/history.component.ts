@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { UserService } from 'src/app/user.service';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent {
+export class HistoryComponent implements OnInit{
   borrows: any[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 5;

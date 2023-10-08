@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { response } from 'express';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,12 @@ export class UserService {
     );
   }
 
+  getProfile() {
+    let headers = this.getHeaders();
+    let token = this.jwt.decodeToken();
+    return this.http.get(`${this.baseUrl}/users/${token.id}`, { headers });
+  }
+
   getBooks() {
     let headers = this.getHeaders();
     return this.http.get(`${this.baseUrl}/books`, { headers } );
@@ -94,8 +101,19 @@ export class UserService {
 
   deleteBooks(bookId: string) {
     let headers = this.getHeaders();
-    return this.http.delete(`${this.baseUrl}/${bookId}`, { headers });
+    return this.http.delete(`${this.baseUrl}/books/${bookId}`, { headers });
 
+  }
+
+
+  updateUser(user: any) {
+    let token = this.jwt.decodeToken();
+    return this.http.put(`${this.baseUrl}/users/${token.id}`, user);
+  }
+
+  addBook(book:any) {
+    let headers = this.getHeaders();
+    return this.http.post(`${this.baseUrl}/books/add`, book );
   }
 
 }

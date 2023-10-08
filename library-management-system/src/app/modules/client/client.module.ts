@@ -10,7 +10,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatIconModule,
     FormsModule,
     NgxPaginationModule,
+    ReactiveFormsModule,
   ]
 })
 export class ClientModule { }

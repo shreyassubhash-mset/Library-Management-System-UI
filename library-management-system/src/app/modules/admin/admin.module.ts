@@ -8,13 +8,18 @@ import { BookComponent } from './components/book/book.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddComponent } from './components/add/add.component';
 
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
     HomeComponent,
-    BookComponent
+    BookComponent,
+    ProfileComponent,
+    AddComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     NgxPaginationModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class AdminModule { }
