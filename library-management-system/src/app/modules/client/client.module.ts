@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WebSocketService } from 'src/app/websocket.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    WebSocketService
   ]
 })
 export class ClientModule { }

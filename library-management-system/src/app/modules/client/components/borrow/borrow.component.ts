@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { WebSocketService } from 'src/app/websocket.service';
  // Import your user service
 
 @Component({
@@ -14,7 +15,7 @@ export class BorrowComponent implements OnInit {
   itemsPerPage: number = 5; 
   currentPage: number = 1;
   totalPages: number = 1;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private webSocketService: WebSocketService) {}
 
   ngOnInit() {
     // Fetch all books when the component initializes
