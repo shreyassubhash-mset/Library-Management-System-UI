@@ -9,7 +9,6 @@ export class WebSocketService {
   private socket: Socket;
 
   constructor() {
-    // Connect to your WebSocket server (replace with your server URL)
     this.socket = io('ws://localhost:3000'); // WebSocket server URL
   }
 

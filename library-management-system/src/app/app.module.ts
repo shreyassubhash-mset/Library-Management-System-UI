@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService } from './user.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthenticationGuard } from './guards/authentication.guard';
+import { WebSocketService } from './websocket.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AuthenticationGuard } from './guards/authentication.guard';
       },
     }),
   ],
-  providers: [UserService, AuthenticationGuard],
+  providers: [UserService, AuthenticationGuard, WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,18 +18,29 @@ export class AddComponent {
       description: [],
       author: [],
       category: [],
+      image: [],
     });
   }
 
   addBook() {
+    if(!this.bookForm.value.image) {
     this.userService.addBook(this.bookForm.value).subscribe(
       (data: any) => {
         console.log("Book added successfully", data);
-        window.location.reload();
       }, (error) => {
         console.error("Failed to add book", error);
       }
-    )
+    );
+    } 
+    else {
+      this.userService.addBooki(this.bookForm.value.image,this.bookForm.value).subscribe(
+        (data: any) => {
+          console.log("Book added successfully", data);
+        }, (error) => {
+          console.error("Failed to add book", error);
+        }
+      );
+    }
   }
 
 }

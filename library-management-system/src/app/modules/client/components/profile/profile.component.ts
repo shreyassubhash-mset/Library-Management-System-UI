@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
@@ -18,8 +18,8 @@ export class ProfileComponent implements OnInit{
     this.updateForm = this.fb.group({
       firstname: [],
       lastname: [],
-      email: [],
-      phone: [],
+      email: ['',[Validators.email]],
+      phone: ['',[Validators.minLength(10), Validators.maxLength(10), this.validateMobileNumber]],
       address: [],
       DOB: [],
     });
@@ -63,4 +63,16 @@ export class ProfileComponent implements OnInit{
       }
     );
   }
+
+  validateMobileNumber(control: AbstractControl): { [key: string]: any } | null {
+    const phoneNumber = control.value;
+    
+    // Check if the phone number contains exactly 10 digits
+    if (/^\d{10}$/.test(phoneNumber)) {
+      return null; // Valid
+    } else {
+      return { 'invalidPhoneNumber': true }; // Invalid
+    }
+  }
+
 }

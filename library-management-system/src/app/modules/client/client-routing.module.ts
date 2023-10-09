@@ -9,7 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path:'borrow', component: BorrowComponent},
+  {path:'book', component: BorrowComponent},
   {path:'history', component:HistoryComponent},
   {path: 'profile', component:ProfileComponent}
 ];

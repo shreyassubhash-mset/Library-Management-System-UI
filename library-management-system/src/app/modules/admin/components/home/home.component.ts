@@ -28,7 +28,7 @@ export class HomeComponent {
       (data: any) => {
         this.books = data;
         this.available = data.filter((item: any) => item.status === "Available");
-        this.borrowed = data.filter((item: any) => item.status === "Not Available");
+        this.borrowed = data.filter((item: any) => item.status === "Not available");
         this.totalPages = Math.ceil(this.books.length / this.itemsPerPage);
         this.updateDisplayedBooks();
       },

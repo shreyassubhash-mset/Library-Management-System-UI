@@ -28,7 +28,7 @@ import { WebSocketService } from 'src/app/websocket.service';
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    WebSocketService
-  ]
+  ],
+  providers: [WebSocketService]
 })
 export class ClientModule { }

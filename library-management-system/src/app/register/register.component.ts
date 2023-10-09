@@ -29,11 +29,18 @@ export class RegisterComponent {
 
     this.userService.register(this.registerForm.value).subscribe(
       (response: any) => {
-        // Successful registration
+        console.log("Registered Successfully")
         // You can handle the response here, e.g., store user data in local storage and navigate to a different page
         localStorage.setItem('token', response.token);
-        console.log('Registration successful', response);
-        this.router.navigate(['/login']);
+        this.userService.login(this.registerForm.value).subscribe(
+          (response: any) => {
+            localStorage.setItem('token', response.token);
+            console.log('Login successful', response);
+            this.userService.navigation();
+          } , (error) => {
+            console.error("Login failed");
+      }
+        );
       },
       (error) => {
         // Handle registration error, e.g., display an error message to the user

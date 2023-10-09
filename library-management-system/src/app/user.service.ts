@@ -113,7 +113,20 @@ export class UserService {
 
   addBook(book:any) {
     let headers = this.getHeaders();
-    return this.http.post(`${this.baseUrl}/books/add`, book );
+    return this.http.post(`${this.baseUrl}/books/add`, book, { headers } );
   }
+
+  addBooki(image: File, book:any) {
+    let headers = this.getHeaders();
+
+    const formData = new FormData();
+
+  formData.append('image', image);
+
+  formData.append('book', book);
+
+    return this.http.post(`${this.baseUrl}/books/add`, formData, { headers } );
+  }
+
 
 }
