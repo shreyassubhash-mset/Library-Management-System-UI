@@ -23,7 +23,6 @@ export class AddComponent {
   }
 
   addBook() {
-    if(!this.bookForm.value.image) {
     this.userService.addBook(this.bookForm.value).subscribe(
       (data: any) => {
         console.log("Book added successfully", data);
@@ -31,16 +30,6 @@ export class AddComponent {
         console.error("Failed to add book", error);
       }
     );
-    } 
-    else {
-      this.userService.addBooki(this.bookForm.value.image,this.bookForm.value).subscribe(
-        (data: any) => {
-          console.log("Book added successfully", data);
-        }, (error) => {
-          console.error("Failed to add book", error);
-        }
-      );
-    }
-  }
+  } 
 
 }

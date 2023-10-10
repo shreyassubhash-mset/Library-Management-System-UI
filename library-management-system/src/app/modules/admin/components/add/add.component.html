@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-        <form [formGroup]="bookForm" (ngSubmit)="addBook()">	
+        <form [formGroup]="bookForm" (ngSubmit)="addBook()" enctype="multipart/form-data">	
             <h3 class="head">Add Book</h3>
             <div class="grid">
                 <div>
@@ -34,7 +34,7 @@
             <div class="grid">
                 <div>
                     <div>
-                        <label>Photo:</label>
+                        <label>Book Photo:</label>
                         <input style="background-color: rgba(255, 255, 255, 0.07)" type="file" formControlName="image" >
                     </div>
                 </div>
