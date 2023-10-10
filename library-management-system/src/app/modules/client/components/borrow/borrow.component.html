@@ -4,7 +4,9 @@
         <h2 class="total">Total books: {{ books.length }} </h2>
 
         <div  *ngFor="let book of books | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: books.length }" class="container">
-            <div class="images"></div>
+            <div class="images">
+                <img src="http://localhost:3000/images/{{ book.image }}" alt="Book Photo">
+            </div>
                 <div class="product">
                     <h2>{{ book.title }}</h2>
                     <h1>{{ book.author }}</h1>

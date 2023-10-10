@@ -125,8 +125,8 @@ h2 {
   }
 
 img {
-  width: 290px;
-  margin: 20px 58rem 20px 20px;
+  width: 11rem;
+  margin: 20px 58rem 20px 70px;
 }
 
 
@@ -216,5 +216,8 @@ button {
 		transform: translateY(-5px);
 	}
   }
+
+
+
 
   
