@@ -18,7 +18,6 @@ export class AddComponent {
       description: [],
       author: [],
       category: [],
-      image: [],
     });
   }
 
