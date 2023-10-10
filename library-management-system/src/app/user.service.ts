@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { response } from 'express';
@@ -116,5 +116,22 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/books/add`, book, { headers } );
   }
 
+  addBooki(imageFile: File, formData: FormData) {
+    let headers = this.getHeaders();
+      // Create a new FormData object
+      const data = new FormData();
+  
+      // Append the image file to the FormData
+      data.append('image', imageFile);
+  
+      // Append other form data fields (assuming you have a FormGroup)
+      data.append('title', formData.get('title') as string);
+      data.append('description', formData.get('description') as string);
+      data.append('author', formData.get('author') as string);
+      data.append('category', formData.get('category') as string);
+  
+      // Send the FormData in the POST request
+      return this.http.post<any>(`${this.baseUrl}/books/add`, data, { headers });
+  }
 
 }
