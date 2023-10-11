@@ -48,6 +48,7 @@ export class AddComponent {
     this.userService.addBook(formData).subscribe(
       (data: any) => {
         console.log("Book added successfully", data);
+        window.location.reload();
       },
       (error) => {
         console.error("Failed to add book", error);

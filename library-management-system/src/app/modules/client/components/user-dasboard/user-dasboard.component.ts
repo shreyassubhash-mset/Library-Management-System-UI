@@ -26,12 +26,12 @@ export class UserDasboardComponent implements OnInit {
 
     // Listen for book borrowed events
     this.webSocketService.onBookBorrowed().subscribe((payload: any) => {
-      this.addNotification(`Book borrowed: ${payload.bookId}`);
+      this.addNotification(`${payload.bookname} is now unavailable`);
     });
 
     // Listen for book returned events
     this.webSocketService.onBookReturned().subscribe((payload: any) => {
-      this.addNotification(`Book returned: ${payload.bookId}`);
+      this.addNotification(`Book returned: ${payload.bookname} is now available`);
     });
   }
 

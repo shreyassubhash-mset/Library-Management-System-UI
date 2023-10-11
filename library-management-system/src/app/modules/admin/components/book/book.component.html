@@ -5,7 +5,7 @@
 
         <div  *ngFor="let book of books | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: books.length }" class="container">
             <div class="images">
-                <img src="http://localhost:3000/images/{{ book.image }}" alt="book photo">
+                <img src="http://localhost:3000/images/{{ book.image }}" alt="Book Photo">
             </div>
                 <div class="product">
                     <h2>{{ book.title }}</h2>

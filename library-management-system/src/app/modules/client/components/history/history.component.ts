@@ -35,7 +35,7 @@ export class HistoryComponent implements OnInit{
     this.userService.returnBook(borrowId).subscribe(
       (data: any) => {
         console.log("Book returned Successfully", data);
-        this.webSocketService.emitReturnedEvent({ borrowId: borrowId });
+        this.webSocketService.emitReturnedEvent({ bookname: data.title });
         window.location.reload();
       }, (error) => {
         console.error('Error returning book', error);

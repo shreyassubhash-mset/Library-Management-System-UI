@@ -134,7 +134,7 @@ img {
 
 .product {
   position: absolute;
-  width: 70%;
+  width: 60%;
   height: 100%;
   top: 10%;
   left: 34%;
@@ -155,24 +155,26 @@ img {
 
 button {
     background: #1845ad;
+    position: absolute;
     padding: 10px;
     display: block;
     outline: 0;
     border: 0;
     margin: -1px;
     margin-top: 2rem;
+    border-radius: 10px 10px 10px 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #ffffff;
     cursor: pointer;
     align-items: end;
-    border-radius: 10px 10px 10px 10px;
+    left: 30rem;
+    top: 11rem;
     &:hover {
-      background: #23a2f6;
-    transition: all 0.4s ease-in-out;
-    transform: translateY(-5px);
+      background: #f62323;
+      transition: all 0.4s ease-in-out;
+    }
   }
-}
 
 .add {
   width: 30%;

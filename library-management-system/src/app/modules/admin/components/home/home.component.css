@@ -106,10 +106,10 @@ h2 {
     margin-top: -5px;
   }
 
-img {
-  width: 290px;
-  margin: 20px 58rem 20px 20px;
-}
+  img {
+    width: 11rem;
+    margin: 20px 58rem 20px 70px;
+  }
 
 
 
@@ -136,8 +136,8 @@ img {
 }
 
 button {
-    position: absolute;
   background: #ad1818;
+    position: absolute;
   padding: 10px;
   display: block;
   outline: 0;

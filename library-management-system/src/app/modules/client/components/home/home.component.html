@@ -22,7 +22,9 @@
 </div>
 <h2 class="heading" id="history">History</h2>
 <div  *ngFor="let borrow of borrows" class="container">
-    <div class="images"></div>
+    <div class="images">
+        <img src="http://localhost:3000/images/{{ borrow.book.image }}" alt="Book Photo">
+    </div>
         <div class="product">
             <h2>{{ borrow.book.title }}</h2>
             <h1>{{ borrow.book.author }}</h1>

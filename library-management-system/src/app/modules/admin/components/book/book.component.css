@@ -124,10 +124,10 @@ h2 {
     margin-top: -5px;
   }
 
-img {
-  width: 290px;
-  margin: 20px 58rem 20px 20px;
-}
+  img {
+    width: 11rem;
+    margin: 20px 58rem 20px 70px;
+  }
 
 
 
@@ -155,24 +155,26 @@ img {
 
 button {
     background: #ad1818;
+    position: absolute;
     padding: 10px;
     display: block;
     outline: 0;
     border: 0;
     margin: -1px;
     margin-top: 2rem;
+    border-radius: 10px 10px 10px 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #ffffff;
     cursor: pointer;
     align-items: end;
-    border-radius: 10px 10px 10px 10px;
+    left: 23rem;
+    top: 11rem;
     &:hover {
       background: #f62323;
-    transition: all 0.4s ease-in-out;
-    transform: translateY(-5px);
+      transition: all 0.4s ease-in-out;
+    }
   }
-}
 
 .add {
   width: 30%;

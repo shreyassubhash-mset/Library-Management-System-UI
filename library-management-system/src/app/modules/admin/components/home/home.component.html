@@ -22,7 +22,9 @@
 </div>
 <h2 class="heading" id="history">Recently added books</h2>
 <div *ngFor="let book of books | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: books.length }" class="container">
-    <div class="images"></div>
+    <div class="images">
+        <img src="http://localhost:3000/images/{{ book.image }}" alt="Book Photo">
+    </div>
         <div class="product">
             <h2>{{ book.title }}</h2>
             <h1>{{ book.author }}</h1>
