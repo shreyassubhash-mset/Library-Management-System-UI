@@ -13,6 +13,9 @@ import { UserService } from './user.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { WebSocketService } from './websocket.service';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { WebSocketService } from './websocket.service';
         allowedDomains: ['localhost:3000'],
       },
     }),
+    SocketIoModule.forRoot(config),
   ],
   providers: [UserService, AuthenticationGuard, WebSocketService],
   bootstrap: [AppComponent]

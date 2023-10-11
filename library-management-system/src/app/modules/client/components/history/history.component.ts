@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { WebSocketService } from 'src/app/websocket.service';
 
 @Component({
   selector: 'app-history',
@@ -11,7 +12,7 @@ export class HistoryComponent implements OnInit{
   currentPage: number = 1;
   itemsPerPage: number = 5;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private webSocketService: WebSocketService) {}
 
   ngOnInit() {
     this.getBorrowedBooks();
@@ -34,6 +35,7 @@ export class HistoryComponent implements OnInit{
     this.userService.returnBook(borrowId).subscribe(
       (data: any) => {
         console.log("Book returned Successfully", data);
+        this.webSocketService.emitReturnedEvent({ borrowId: borrowId });
         window.location.reload();
       }, (error) => {
         console.error('Error returning book', error);

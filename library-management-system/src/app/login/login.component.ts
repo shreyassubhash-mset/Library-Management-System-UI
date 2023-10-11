@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { WebSocketService } from '../websocket.service';
 
 
 @Component({
