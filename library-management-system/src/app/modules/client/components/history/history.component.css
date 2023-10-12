@@ -91,7 +91,7 @@ button {
   left: 30rem;
   top: 11rem;
   &:hover {
-    background: #f62323;
+    background: #23a2f6;
     transition: all 0.4s ease-in-out;
   }
 }
