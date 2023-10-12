@@ -193,13 +193,15 @@ button {
 
 .containerp {
     position: relative;
-    width: 50%;
+    width: 20%;
+    height: 2rem;
     background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.5));
     background-size: cover;
     background-position: center;
+    padding-bottom: 10px;
     display: flex;
     top: 3rem;
-    left: 29rem;
+    left: 45rem;
     align-items: center;
     justify-content: center;
   }
@@ -213,13 +215,14 @@ button {
     justify-content: center;
     margin: 10px;
     transition: 0.25s ease;
+    top: -1rem;
 
 	&:hover {
 		transform: translateY(-5px);
 	}
   
-  .paginationn button{
-    position: relative;
+  .paginationp button{
+    position: absolute;
     height: 40px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
@@ -235,6 +238,8 @@ button {
   }
 
   }
+
+ 
 
 
 

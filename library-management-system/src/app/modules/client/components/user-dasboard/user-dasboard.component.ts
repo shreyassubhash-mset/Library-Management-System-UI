@@ -31,8 +31,9 @@ export class UserDasboardComponent implements OnInit {
 
     // Listen for book returned events
     this.webSocketService.onBookReturned().subscribe((payload: any) => {
-      this.addNotification(`Book returned: ${payload.bookname} is now available`);
+      this.addNotification(`${payload.bookname} is now available`);
     });
+
   }
 
   closeNotification(index: number) {

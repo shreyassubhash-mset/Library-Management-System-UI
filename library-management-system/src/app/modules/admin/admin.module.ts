@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddComponent } from './components/add/add.component';
+import { WebSocketService } from 'src/app/websocket.service';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AddComponent } from './components/add/add.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-  ]
+  ],
+  providers: [WebSocketService]
 })
 export class AdminModule { }

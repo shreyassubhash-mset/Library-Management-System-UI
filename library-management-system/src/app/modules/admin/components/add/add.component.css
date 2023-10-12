@@ -47,7 +47,7 @@ input{
     color: #e5e5e5;
 }
 button{
-    margin-top: 50px;
+    margin-top: 16px;
     width: 20%;
     background-color: #23a2f6;
     color: #080710;
@@ -94,4 +94,8 @@ select {
 }
 .head {
     display: flex;
+}
+
+.choose {
+    padding-top: 10px;
 }

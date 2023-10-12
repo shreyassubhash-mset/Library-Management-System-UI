@@ -107,21 +107,21 @@ h2 {
   }
 
   img {
-    width: 11rem;
-    margin: 20px 58rem 20px 70px;
+    width: 10rem;
+    margin: 0px 58rem 10px 70px;
   }
 
 
 
 
-.product {
-  position: absolute;
-  width: 70%;
-  height: 100%;
-  top: 10%;
-  left: 34%;
-  text-align:left;
-}
+  .product {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 10%;
+    left: 34%;
+    text-align:left;
+  }
 
 
 .desc {
@@ -150,7 +150,7 @@ button {
   color: #ffffff;
   cursor: pointer;
   align-items: end;
-  left: 23rem;
+  left: 19rem;
   top: 11rem;
   &:hover {
     background: #f62323;

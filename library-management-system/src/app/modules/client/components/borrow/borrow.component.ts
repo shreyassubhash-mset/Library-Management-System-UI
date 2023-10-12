@@ -82,7 +82,7 @@ export class BorrowComponent implements OnInit {
       (response: any) => {
         // Handle the successful response from your backend if needed
         console.log('Book borrowed successfully', response);
-        this.webSocketService.emitBorrowedEvent({ bookname: response.title });
+        this.webSocketService.emitBorrowedEvent({ bookname: response.book.title });
         window.location.reload();
       },
       (error) => {

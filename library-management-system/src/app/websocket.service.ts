@@ -45,6 +45,32 @@ export class WebSocketService {
     this.socket.emit('returned', payload);
   }
 
+  emitCreatedEvent(payload: any) {
+    this.socket.emit('create', payload);
+  }
+
+  emitDeletedEvent(payload: any) {
+    this.socket.emit('deleted', payload);
+  }
+
+  onBookCreated(): Observable<any> {
+    return this.socket.fromEvent('bookCreated').pipe(
+      catchError((error) => {
+        console.error('Error in bookCreated event:', error);
+        return throwError(error); // Handle the error as needed
+      })
+    );
+  }
+
+  onBookDeleted(): Observable<any> {
+    return this.socket.fromEvent('bookDeleted').pipe(
+      catchError((error) => {
+        console.error('Error in bookCreated event:', error);
+        return throwError(error); // Handle the error as needed
+      })
+    );
+  }
+
   disconnect() {
     this.socket.disconnect();
   }

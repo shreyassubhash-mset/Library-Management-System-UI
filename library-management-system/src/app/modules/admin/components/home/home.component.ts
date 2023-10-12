@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { WebSocketService } from 'src/app/websocket.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent {
   itemsPerPage: number = 3; 
   currentPage: number = 1;
   totalPages: number = 1;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private webSocketService: WebSocketService) {}
 
   ngOnInit() {
     // Fetch all books when the component initializes
@@ -63,6 +64,7 @@ export class HomeComponent {
     this.userService.deleteBooks(bookId).subscribe(
       (data: any) => {
         console.log("Book deleted successfully", data);
+        this.webSocketService.emitDeletedEvent({bookName: data.title});
         window.location.reload();
       }, (error) => {
         console.error("Failed to delete the book", error);

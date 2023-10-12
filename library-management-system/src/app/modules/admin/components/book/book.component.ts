@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { WebSocketService } from 'src/app/websocket.service';
 
 @Component({
   selector: 'app-book',
@@ -13,9 +14,16 @@ export class BookComponent {
   itemsPerPage: number = 5; 
   currentPage: number = 1;
   totalPages: number = 1;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private webSocketService: WebSocketService) {}
 
   ngOnInit() {
+
+    const payload = localStorage.getItem('payload');
+    if (payload) {
+      this.webSocketService.emitDeletedEvent(JSON.parse(payload));
+      // Remove the payload from localStorage
+      localStorage.removeItem('payload');
+    }
     // Fetch all books when the component initializes
     this.searchBooks();
   }
@@ -78,7 +86,8 @@ export class BookComponent {
     this.userService.deleteBooks(bookId).subscribe(
       (data: any) => {
         console.log("Book deleted successfully", data);
-        window.location.reload();
+        localStorage.setItem('payload', JSON.stringify({ bookName: data.title }));
+        //window.location.reload();
       }, (error) => {
         console.error("Failed to delete the book", error);
       }

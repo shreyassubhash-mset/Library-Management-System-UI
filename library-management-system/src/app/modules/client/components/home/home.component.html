@@ -30,8 +30,7 @@
             <h1>{{ borrow.book.author }}</h1>
             <p class="desc">{{ borrow.book.description }}</p>
             <h4 style="color: #ffffff">{{ borrow.book.category }}</h4>
-            <h4 style="color: #ffffff">Borrowed on {{ borrow.borrowedDate }}</h4>
-            <h4 style="color: #ffffff">Returned on {{ borrow.returnedDate }}</h4>
+            <h4 style="color: #ffffff">Borrowed from: {{ borrow.borrowedDate }} - {{ borrow.returnedDate }}</h4>
         </div>
         <div style="position: absolute;"class="buttons">
             <button class="add" (click)="returnBook(borrow._id)" *ngIf="borrow.status === 'Borrowed'">Return</button>

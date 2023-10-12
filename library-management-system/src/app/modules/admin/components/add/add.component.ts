@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
+import { WebSocketService } from 'src/app/websocket.service';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent {
+export class AddComponent implements OnInit{
 
   bookForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) {
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder, private webSocketService: WebSocketService) {
     this.bookForm = this.fb.group({
       title: [''],
       description: [''],
@@ -20,6 +21,16 @@ export class AddComponent {
       category: [''],
       image: [''], // Define it as a string initially
     });
+  }
+
+  ngOnInit() {
+    // Check if there's a payload in localStorage and emit it
+    const payload = localStorage.getItem('payload');
+    if (payload) {
+      this.webSocketService.emitCreatedEvent(JSON.parse(payload));
+      // Remove the payload from localStorage
+      localStorage.removeItem('payload');
+    }
   }
 
   onFileSelected(event: any) {
@@ -48,7 +59,8 @@ export class AddComponent {
     this.userService.addBook(formData).subscribe(
       (data: any) => {
         console.log("Book added successfully", data);
-        window.location.reload();
+        localStorage.setItem('payload', JSON.stringify({ bookName: data.title }));
+        //window.location.reload();
       },
       (error) => {
         console.error("Failed to add book", error);
