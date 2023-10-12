@@ -134,4 +134,8 @@ export class UserService {
       return this.http.post<any>(`${this.baseUrl}/books/add`, data, { headers });
   }
 
+  getBorrowNotification(bookId: any) {
+    let headers = this.getHeaders();
+    return this.http.get(`${this.baseUrl}/books/${bookId}`, { headers });
+  }
 }
