@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule) , canActivate: [AuthenticationGuard]},
-  { path: 'client', loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule) },
+  { path: 'client', loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule),canActivate: [AuthenticationGuard] },
   {path: '**', component: LoginComponent},
 ];
 

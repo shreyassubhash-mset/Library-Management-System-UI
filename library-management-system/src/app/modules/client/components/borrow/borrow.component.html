@@ -19,9 +19,9 @@
                 </div>
         </div>
         <div class="containerp" *ngIf="books.length > itemsPerPage">
-            <button class="paginationp" style="top: -2.3rem; left: -1rem" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+            <button class="paginationp" style="top: -2.3rem; left: -1rem; background-color: rgba(255, 255, 255, 0.13);" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
            <span style="color: #ffffff" >Page {{ currentPage }} of {{ totalPages }}</span>
-        <button class="paginationn" style="top: -2.3rem; left: 14rem" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        <button class="paginationn" style="top: -2.3rem; left: 14rem; background-color: rgba(255, 255, 255, 0.13); " (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
         </div>
           
 </body>

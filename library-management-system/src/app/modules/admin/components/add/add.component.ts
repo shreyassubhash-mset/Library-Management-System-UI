@@ -60,7 +60,8 @@ export class AddComponent implements OnInit{
       (data: any) => {
         console.log("Book added successfully", data);
         localStorage.setItem('payload', JSON.stringify({ bookName: data.title }));
-        //window.location.reload();
+        this.webSocketService.emitCreatedEvent({bookName: data.title});
+        window.location.reload();
       },
       (error) => {
         console.error("Failed to add book", error);

@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddComponent } from './components/add/add.component';
 import { WebSocketService } from 'src/app/websocket.service';
+import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
 
 
 @NgModule({
@@ -30,6 +31,6 @@ import { WebSocketService } from 'src/app/websocket.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [WebSocketService]
+  providers: [WebSocketService, AuthenticationGuard],
 })
 export class AdminModule { }

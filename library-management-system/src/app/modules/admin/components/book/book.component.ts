@@ -21,10 +21,10 @@ export class BookComponent {
     const payload = localStorage.getItem('payload');
     if (payload) {
       this.webSocketService.emitDeletedEvent(JSON.parse(payload));
-      // Remove the payload from localStorage
+
       localStorage.removeItem('payload');
     }
-    // Fetch all books when the component initializes
+    
     this.searchBooks();
   }
 
@@ -87,7 +87,8 @@ export class BookComponent {
       (data: any) => {
         console.log("Book deleted successfully", data);
         localStorage.setItem('payload', JSON.stringify({ bookName: data.title }));
-        //window.location.reload();
+        this.webSocketService.emitDeletedEvent({bookName: data.title});
+        window.location.reload();
       }, (error) => {
         console.error("Failed to delete the book", error);
       }

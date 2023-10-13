@@ -26,7 +26,7 @@ ngOnInit() {
 
   // Listen for book borrowed events
   this.webSocketService.onBookCreated().subscribe((payload: any) => {
-    this.addNotification(`${payload.bookName} is created`);
+    this.addNotification(`New Book: ${payload.bookName} is created`);
   });
 
   // Listen for book returned events
