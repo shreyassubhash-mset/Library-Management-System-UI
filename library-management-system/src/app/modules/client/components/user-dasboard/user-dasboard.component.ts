@@ -34,6 +34,13 @@ export class UserDasboardComponent implements OnInit {
       this.addNotification(`${payload.bookname} is now available`);
     });
 
+    this.webSocketService.onBookCreated().subscribe((payload: any) => {
+      this.addNotification(`New Book/n${payload.bookName} is now available`);
+    });
+
+    this.webSocketService.onBookDeleted().subscribe((payload: any) => {
+      this.addNotification(`Book removed/n${payload.bookName} is removed from library`);
+    });
   }
 
   closeNotification(index: number) {

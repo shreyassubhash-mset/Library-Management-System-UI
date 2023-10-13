@@ -12,10 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WebSocketService } from 'src/app/websocket.service';
-import { AdminModule } from '../admin/admin.module';
-import { AddComponent } from '../admin/components/add/add.component';
-import { BookComponent } from '../admin/components/book/book.component';
-import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
 
 @NgModule({
   declarations: [
@@ -32,8 +28,7 @@ import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    AdminModule
   ],
-  providers: [WebSocketService, AuthenticationGuard],
+  providers: [WebSocketService],
 })
 export class ClientModule { }

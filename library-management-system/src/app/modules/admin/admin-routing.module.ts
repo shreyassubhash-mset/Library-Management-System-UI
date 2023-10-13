@@ -5,14 +5,13 @@ import { HomeComponent } from './components/home/home.component';
 import { BookComponent } from './components/book/book.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddComponent } from './components/add/add.component';
-import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full',canActivate: [AuthenticationGuard]},
-  {path: 'home', component: HomeComponent, canActivate: [AuthenticationGuard]},
-  {path: 'book', component: BookComponent, canActivate: [AuthenticationGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuard]},
-  {path: 'add', component: AddComponent, canActivate: [AuthenticationGuard]}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'book', component: BookComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'add', component: AddComponent}
 ];
 
 @NgModule({

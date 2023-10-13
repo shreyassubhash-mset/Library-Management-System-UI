@@ -8,11 +8,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthenticationGuard } from 'src/app/guards/authentication.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo:'home', pathMatch: 'full', canActivate: [AuthenticationGuard]},
-  {path: 'home', component: HomeComponent, canActivate: [AuthenticationGuard]},
-  {path:'book', component: BorrowComponent, canActivate: [AuthenticationGuard]},
-  {path:'history', component:HistoryComponent, canActivate: [AuthenticationGuard]},
-  {path: 'profile', component:ProfileComponent, canActivate: [AuthenticationGuard]}
+  {path: '', redirectTo:'home', pathMatch: 'full',},
+  {path: 'home', component: HomeComponent},
+  {path:'book', component: BorrowComponent},
+  {path:'history', component:HistoryComponent},
+  {path: 'profile', component:ProfileComponent}
 ];
 
 @NgModule({

@@ -18,7 +18,13 @@ export class HomeComponent {
   constructor(private userService: UserService, private webSocketService: WebSocketService) {}
 
   ngOnInit() {
-    // Fetch all books when the component initializes
+    const payload = localStorage.getItem('payload');
+    if (payload) {
+      this.webSocketService.emitDeletedEvent(JSON.parse(payload));
+
+      localStorage.removeItem('payload');
+    }
+
     this.fetchBooks();
   }
 
@@ -64,6 +70,7 @@ export class HomeComponent {
     this.userService.deleteBooks(bookId).subscribe(
       (data: any) => {
         console.log("Book deleted successfully", data);
+        localStorage.setItem('payload', JSON.stringify({ bookName: data.title }));
         this.webSocketService.emitDeletedEvent({bookName: data.title});
         window.location.reload();
       }, (error) => {
@@ -71,4 +78,5 @@ export class HomeComponent {
       }
     );
   }
+
 }
